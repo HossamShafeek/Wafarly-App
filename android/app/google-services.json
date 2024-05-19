@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "446629767320",
+    "project_id": "wafarly-38e79",
+    "storage_bucket": "wafarly-38e79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446629767320:android:d51f7e62a568ecb42088ed",
+        "android_client_info": {
+          "package_name": "com.wafarly.wafarly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBww6jhTesmP9hv_8zxiNx8SC9Zvu-4j6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

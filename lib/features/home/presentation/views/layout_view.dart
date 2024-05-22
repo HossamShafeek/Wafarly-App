@@ -26,18 +26,20 @@ class LayoutView extends StatefulWidget {
 class _LayoutViewState extends State<LayoutView> {
   @override
   void initState() {
-    BottomNavigationCubit.get(context).checkInternetConnection().then((value) {
-      if (BottomNavigationCubit.get(context).isInternet) {
-        SlidersCubit.get(context).getSliders();
-        StoresCubit.get(context).getStores();
-        CouponsCubit.get(context).getCoupons();
-        if (AppConstants.userId.isNotEmpty) {
-          ProfileCubit.get(context).getUserData();
-          FavoritesCubit.get(context).getFavorites();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      BottomNavigationCubit.get(context).checkInternetConnection().then((value) {
+        if (BottomNavigationCubit.get(context).isInternet) {
+          SlidersCubit.get(context).getSliders();
+          StoresCubit.get(context).getStores();
+          CouponsCubit.get(context).getCoupons();
+          if (AppConstants.userId.isNotEmpty) {
+            ProfileCubit.get(context).getUserData();
+            FavoritesCubit.get(context).getFavorites();
+          }
+          AboutCubit.get(context).getAboutData();
+          OffersCubit.get(context).getOffers();
         }
-        AboutCubit.get(context).getAboutData();
-        OffersCubit.get(context).getOffers();
-      }
+      });
     });
     BottomNavigationCubit.get(context).currentIndex = 2;
     super.initState();

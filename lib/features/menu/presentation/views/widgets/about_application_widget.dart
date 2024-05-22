@@ -19,6 +19,7 @@ class AboutApplicationWidget extends StatelessWidget {
     return BlocBuilder<AboutCubit,AboutState>(builder: (context, state) {
       if(state is GetAboutSuccessState){
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
              const MenuItemWidget(
               paddingForTop:0,

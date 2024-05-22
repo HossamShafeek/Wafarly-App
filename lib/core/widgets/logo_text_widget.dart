@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wafarly/core/utils/app_strings.dart';
-import 'package:wafarly/core/utils/app_styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wafarly/core/utils/app_assets.dart';
+
 
 class LogoTextWidget extends StatelessWidget {
   const LogoTextWidget({super.key, this.size});
@@ -9,17 +10,9 @@ class LogoTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      AppStrings.wafarly,
-      style: AppStyles.styleBold30Red,
-    );
+     return Image.asset(
+    AppAssets.wafarlyLogo,
+    width: size??150.h,
+  );
   }
 }
-
-// @override
-// Widget build(BuildContext context) {
-//   return Image.asset(
-//     AppAssets.logoText,
-//     width: size??AppConstants.size200w,
-//   );
-// }

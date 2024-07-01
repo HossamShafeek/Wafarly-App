@@ -29,6 +29,8 @@ class AppStrings {
   static const String shareApplicationDescription = 'يلا شارك التطبيق مع أصدقائك دلوقتي.';
   static const String doYouWantToModifyAppData = 'هل تريد تعديل بيانات التطبيق؟';
   static const String updateAppData = 'تعديل بيانات التطبيق';
+  static const String deleteAccount = 'حذف الحساب';
+  static const String doYouWantToDeleteTheAccount = 'هل تريد حذف الحساب؟';
 
   static const String details = 'التفاصيل';
   static const String menu = 'القائمة';

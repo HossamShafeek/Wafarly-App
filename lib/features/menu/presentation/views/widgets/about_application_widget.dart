@@ -4,11 +4,13 @@ import 'package:wafarly/core/functions/launch_store_url.dart';
 import 'package:wafarly/core/functions/share_coupon.dart';
 import 'package:wafarly/core/functions/show_snack_bar.dart';
 import 'package:wafarly/core/shimmer/shimmer_about_menu_widget.dart';
+import 'package:wafarly/core/utils/app_constants.dart';
 import 'package:wafarly/core/utils/app_strings.dart';
 import 'package:wafarly/core/widgets/custom_error_widget.dart';
 import 'package:wafarly/features/home/presentation/views/widgets/menu_list_tile.dart';
 import 'package:wafarly/features/menu/presentation/cubits/about_cubit/about_cubit.dart';
 import 'package:wafarly/features/menu/presentation/cubits/about_cubit/about_state.dart';
+import 'package:wafarly/features/menu/presentation/views/widgets/delete_account_button.dart';
 import 'package:wafarly/features/menu/presentation/views/widgets/menu_item_widget.dart';
 
 class AboutApplicationWidget extends StatelessWidget {
@@ -51,6 +53,7 @@ class AboutApplicationWidget extends StatelessWidget {
                 shareApp(link: state.aboutModel.appLink);
               },
             ),
+            AppConstants.userType=='user'?const DeleteAccountButton():const SizedBox.shrink(),
           ],
         );
       }else if(state is GetAboutFailureState){

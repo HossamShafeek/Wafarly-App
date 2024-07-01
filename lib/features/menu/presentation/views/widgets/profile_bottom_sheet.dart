@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:wafarly/config/local/cache_helper.dart';
 import 'package:wafarly/core/functions/show_snack_bar.dart';
 import 'package:wafarly/core/utils/app_colors.dart';
 import 'package:wafarly/core/utils/app_constants.dart';
@@ -21,11 +22,12 @@ class ProfileBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {
-        if(state is UpdateUserDataSuccessState){
+        if(state is UpdateUserDataSuccessState) {
           showSuccessSnackBar(context: context, message: state.message);
-          ProfileCubit.get(context).getUserData().then((value) {
-            Navigator.pop(context);
-          });
+        CacheHelper.removeData(key: AppConstants.cacheUserModel).then((value) {
+          Navigator.pop(context);
+          ProfileCubit.get(context).getUserData();
+        });
         }else if(state is UpdateUserDataFailureState){
           showErrorSnackBar(context: context, message: state.error);
         }

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
-import 'package:wafarly/config/local/cache_helper.dart';
 import 'package:wafarly/config/routes/app_routes.dart';
+import 'package:wafarly/core/functions/clear_cash.dart';
 import 'package:wafarly/core/functions/show_snack_bar.dart';
 import 'package:wafarly/core/utils/app_constants.dart';
 import 'package:wafarly/core/utils/app_strings.dart';
@@ -41,18 +41,16 @@ class MenuView extends StatelessWidget {
           Gap(AppConstants.size10h),
           AppConstants.userId.isNotEmpty
               ? CustomElevatedButton(
-                  onPressed: () {
-                    CacheHelper.removeData(key: 'userId').then((value) {
-                      AppConstants.userType = '';
-                      AppConstants.userId = '';
-                      FavoritesCubit.get(context).favorites = [];
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, Routes.layoutView, (route) => false);
-                      showSuccessSnackBar(
-                          context: context, message: 'تم تسجيل الخروج بنجاح');
-                    });
-                  },
-                  title: AppStrings.signOut)
+              onPressed: () {
+                clearCash().then((value) {
+                  FavoritesCubit.get(context).favorites = [];
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, Routes.layoutView, (route) => false);
+                  showSuccessSnackBar(
+                      context: context, message: 'تم تسجيل الخروج بنجاح');
+                });
+              },
+              title: AppStrings.signOut)
               : const SizedBox.shrink(),
         ],
       ),

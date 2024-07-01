@@ -26,9 +26,9 @@ class LayoutView extends StatefulWidget {
 class _LayoutViewState extends State<LayoutView> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      BottomNavigationCubit.get(context).checkInternetConnection().then((value) {
-        if (BottomNavigationCubit.get(context).isInternet) {
+    BottomNavigationCubit.get(context).checkInternetConnection().then((value) {
+      if (BottomNavigationCubit.get(context).isInternet) {
+        AboutCubit.get(context).getAboutData().then((value) {
           SlidersCubit.get(context).getSliders();
           StoresCubit.get(context).getStores();
           CouponsCubit.get(context).getCoupons();
@@ -36,10 +36,9 @@ class _LayoutViewState extends State<LayoutView> {
             ProfileCubit.get(context).getUserData();
             FavoritesCubit.get(context).getFavorites();
           }
-          AboutCubit.get(context).getAboutData();
           OffersCubit.get(context).getOffers();
-        }
-      });
+        });
+      }
     });
     BottomNavigationCubit.get(context).currentIndex = 2;
     super.initState();

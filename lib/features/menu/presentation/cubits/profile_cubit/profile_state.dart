@@ -30,5 +30,17 @@ class UpdateUserDataFailureState extends ProfileState {
   final String error;
 
   UpdateUserDataFailureState(this.error);
+}class DeleteUserLoadingState extends ProfileState {}
+
+class DeleteUserSuccessState extends ProfileState {
+  final String message;
+
+  DeleteUserSuccessState(this.message);
+}
+
+class DeleteUserFailureState extends ProfileState {
+  final String error;
+
+  DeleteUserFailureState(this.error);
 }
 

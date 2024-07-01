@@ -37,6 +37,8 @@ class AdminMenuView extends StatelessWidget {
           CustomElevatedButton(
               onPressed: () {
                 CacheHelper.removeData(key: 'userId').then((value) {
+                  CacheHelper.removeData(key: AppConstants.cacheUserModel);
+                  CacheHelper.removeData(key: 'userType');
                   AppConstants.userType = '';
                   AppConstants.userId = '';
                   Navigator.pushNamedAndRemoveUntil(

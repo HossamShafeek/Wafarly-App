@@ -48,4 +48,17 @@ class ProfileCubit extends Cubit<ProfileState> {
       emit(UpdateUserDataSuccessState(message));
     });
   }
+
+  Future<void> deleteUser() async {
+    emit(DeleteUserLoadingState());
+    Either<Failure, String> result;
+    result = await menuRepository.deleteUser(
+      userId: AppConstants.userId,
+    );
+    result.fold((failure) {
+      emit(DeleteUserFailureState(failure.error));
+    }, (message) {
+      emit(DeleteUserSuccessState(message));
+    });
+  }
 }

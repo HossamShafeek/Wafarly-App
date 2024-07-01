@@ -8,6 +8,9 @@ class AppConstants {
   static String userId = '';
   static String userType = '';
   static const String path = 'assets/images/';
+  static const String cacheUserModel = 'cache_user_model';
+  static const String cacheAboutModel = 'cache_about_model';
+  static const String cacheFavoritesModel = 'cache_favorites_model';
   static final double defaultPadding = 12.h;
   static final double defaultPaddingW = 12.w;
   static final double size15h = 15.h;

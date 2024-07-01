@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:wafarly/config/local/cache_helper.dart';
-import 'package:wafarly/config/routes/app_routes.dart';
 import 'package:wafarly/core/functions/show_snack_bar.dart';
 import 'package:wafarly/core/utils/app_constants.dart';
 import 'package:wafarly/core/utils/app_strings.dart';
@@ -25,12 +23,9 @@ class RegisterViewBody extends StatelessWidget {
         if (state is RegisterFailureState) {
           showErrorSnackBar(context: context, message: state.error);
         } else if (state is RegisterSuccessState) {
-          CacheHelper.setString(key: 'userId', value: state.user.uid);
-          AppConstants.userId = state.user.uid;
-          Navigator.pushNamedAndRemoveUntil(
-              context, Routes.layoutView, (route) => false);
+          Navigator.pop(context);
           showSuccessSnackBar(
-              context: context, message: 'تم تسجيل الدخول بنجاح');
+              context: context, message: 'تم إنشاء حسابك بنجاح');
         }
       },
       builder: (context, state) {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wafarly/core/shimmer/shimmer_profile_section.dart';
-import 'package:wafarly/core/utils/app_constants.dart';
 import 'package:wafarly/core/utils/app_strings.dart';
 import 'package:wafarly/core/utils/app_styles.dart';
 import 'package:wafarly/core/widgets/custom_error_widget.dart';

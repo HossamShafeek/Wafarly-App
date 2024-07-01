@@ -12,6 +12,9 @@ abstract class MenuRepository {
     required String firstName,
     required String lastName,
   });
+  Future<Either<Failure, String>> deleteUser({
+    required String userId,
+  });
   Future<Either<Failure, AboutModel>> getAboutData();
   Future<Either<Failure, String>> updateAboutData({required AboutModel aboutModel});
 }

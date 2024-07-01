@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -39,9 +38,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     result.fold((failure) {
       emit(RegisterFailureState(failure.error));
-    }, (user) {
+    }, (user) async{
       this.user = user;
-      saveUserDataToFirebase();
+     await saveUserDataToFirebase();
       emit(RegisterSuccessState(user));
     });
   }
@@ -57,7 +56,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           firstName: firstNameController.text,
           lastName: lastNameController.text,
           userType: 'user',
-          createAt: Timestamp.now()),
+          createAt: DateTime.now().toString()),
     );
     result.fold((failure) {
       emit(SaveUserDataFailureState(failure.error));
